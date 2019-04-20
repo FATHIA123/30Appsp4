@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./main.css">
+    <title>Document</title>
+</head>
+<body>
+
+
+<!-- Always have a div that wraps ur whole thing together. Very Important 
+especially if the whole thing is in one box. Even if it isn't incorporte one  -->
+<div class="voiceinator">
+
+   <h1>The Voiceinator</h1>
+
+<!-- The <select> element is used to create a drop-down list.
+
+The <option> tags inside the <select> element define the available options in the list. -->
+        <select name="voice" id="voices">
+            <option value="">Select a Voice</option>
+        </select>
+
+<!-- The <label> tag defines a label for a <button>, <input>, <meter>, <output>, <progress>, <select>, or <textarea> element.
+
+The <label> element does not render as anything special for the user. However, it provides a usability improvement for mouse users,
+     because if the user clicks on the text within the <label> element, it toggles the control.
+
+The for attribute of the <label> tag should be equal to the id attribute of the related element to bind them together. -->
+
+
+<!-- The <input type="range"> defines a control for entering a number whose exact value is not important (like a slider control).
+
+Default range is 0 to 100. However, you can set restrictions on what numbers are accepted with the attributes below.
+
+max - specifies the maximum value allowed
+min - specifies the minimum value allowed
+step - specifies the legal number intervals
+value - Specifies the default value -->
+
+<!-- the "for" in label and "name" for input need to match in this case cause no ID available -->
+<label for="rate">Rate:</label>
+        <input name="rate" type="range" min="0" max="2" value="1" step="0.1">
+
+<label for="pitch">Pitch:</label>
+        <input name="pitch" type="range" min="0" max="2" value="1" step="0.1">
+
+<!-- So when you want a text area you put textarea instead of input. Gives you a text area to write in -->
+
+<!-- The <textarea> tag defines a multi-line text input control.
+
+A text area can hold an unlimited number of characters, and the text renders in a fixed-width font (usually Courier).
+
+The size of a text area can be specified by the cols and rows attributes, or even better; through CSS' height and width properties. -->
+
+<textarea name="text">I love JavaScript </textarea>
+
+        <button id="stop">Stop</button>
+        <button id="start">Start</button>
+
+</div>
+
+
+</body>
+</html>
