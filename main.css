@@ -48,7 +48,7 @@ h1 {
 .voiceinator button,
 .voiceinator select,
 .voiceinator textarea {
-  width: 100%;
+  width: 98%;
   display: block;
   margin: 10px 0;
   padding: 10px;
@@ -62,6 +62,9 @@ textarea {
     height: 20rem;
   }
 
+  label {
+    font-size: 2rem;
+  }
 
   .voiceinator button {
     background: rgb(235, 192, 190);
