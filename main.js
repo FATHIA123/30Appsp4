@@ -85,9 +85,51 @@ voicesDropdown.innerHTML = voicesOptions;
 // if we call speechSynthesis.speak(msg) it speeks. we can change the words in our console and it will say what we wrote.
 // msg.text = "I love food" and run it again, it will say "Ilovefood" regardless of another thing being in the msg txt box
 // but we want to choose from the drop down but that doesn't work yet
+
 }
 
-// So we are going to make another function called set voice
+// So we are going to make another function called set voice to be able to choose the dropdown 
 
+function setVoice() {
+    // console.log("changing voice")
+    // this function should be called when we change from this drop down ***(read*** down below)
+    //  ***we have our voices dropdown, we are going to add an event listener on changed, we are going to call setVoice 
+    // ***So everytime we change voices from the dropdown, its actually changing it and consologs "changing voice"
+    // ***but we don't want to just console log it 
+    // we have our uttence (msg), we want the voice to be the voice we selected. we can't say 
+    // msg.voice = "Alex" because its not a valid voice property. 
+    // So we need to find the voice that lines up with the value. 
+// now if we do this 
+
+// console.log(this.value) we get the name of the speaker
+// we need to find not just the name of it but we also need to find the corrosponding speech synthesis voice object
+
+msg.voice = voices.find(voice => voice.name === this.value)
+// so we want to find the one where the voice name is equal to the value
+// this is going to loop over each of speeachsynthesis array and its going to find the name attribute is the same as 
+// the options html tags value and find the corrosponding value to the name
+// so now if we in the console speachSynthesis.speack(msg) and select any voice it will speek it. Manually works
+toggle();
+}
+
+// Great, now I want to create a function that everytime I change the name i want to restart it. Toggle
+function toggle(startOver = true) {
+// initally I want to cancel everything that I have that is speacking 
+speachSynthesis.cancel();
+// So if you run something and immidiatly call toggle function, it will cancel it/stop it from speaking and 
+// we will retart the entire thing.
+// speachSynthesis.speak(msg)
+// and then we will go up to the set voice and add toggle
+// So everytime you change it it is going to stop it and start it again. 
+// you can also pass a flag in the parantesis as true, but sometime you want to pass false so it won't restart itself. 
+// by defult it is going to be true so you don't have to pass anything unless you specifically don't want it to not start over
+
+if (startOver){
+    speachSynthesis.speak(msg)
+}
+// toogle false will stop it all, toggle will restart it
+}
+
+voicesDropdown.addEventListener('change', setVoice);
 
 speechSynthesis.addEventListener('voiceschanged', populateVoices)
